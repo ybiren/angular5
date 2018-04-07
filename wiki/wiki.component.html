@@ -1,0 +1,18 @@
+<h2>wiki</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-5 col-sm-2 divQuest">
+      {{recommendedArr[0]?.title | urldecode}}
+    </div>
+  </div>
+  <div class="row align-items-right" *ngFor="let ans of recommendedArr;let i = index">
+    <div  [ngClass]="{'rightAns': getRightAnswer(i) ,'wrongAns': getWrongAnswer(i)  }" class="col-sm-offset-0 col-sm-12 text-right divAns" (click)="checkAnswer(i)" >{{ ans.txt }}</div>
+  </div>
+  <div class="row">
+    <button  class="col-sm-offset-5 col-sm-2" (click)="this.buildNextQuestion()">Next Question2</button>
+  </div>
+</div>
+
+<wiki-modal (checkedChanged)="checkedChanged($event)"></wiki-modal>
+
+<div>{{txtModal}}</div> 
